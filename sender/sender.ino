@@ -1,13 +1,4 @@
 /**
-   ESPNOW - Basic communication - Master
-   Date: 26th September 2017
-   Author: Arvind Ravulavaru <https://github.com/arvindr21>
-   Purpose: ESPNow Communication between a Master ESP32 and a Slave ESP32
-   Description: This sketch consists of the code for the Master module.
-   Resources: (A bit outdated)
-   a. https://espressif.com/sites/default/files/documentation/esp-now_user_guide_en.pdf
-   b. http://www.esploradores.com/practica-6-conexion-esp-now/
-
    << This Device Master >>
 
    Flow: Master
@@ -35,7 +26,7 @@
 
 // Global copy of slave
 esp_now_peer_info_t slave;
-#define CHANNEL 1
+#define CHANNEL 1 // TODO:: Remember to store this in eeprom 
 #define PRINTSCANRESULTS 0
 #define DELETEBEFOREPAIR 0
 
@@ -54,7 +45,7 @@ void InitESPNow() {
   }
 }
 
-// Scan for slaves in AP mode
+// Scan for slaves in AP mode and ad as peer if found
 void ScanForSlave() {
   int16_t scanResults = WiFi.scanNetworks(false, false, false, 300, CHANNEL); // Scan only on one channel
   // reset on each scan

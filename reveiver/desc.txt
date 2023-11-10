@@ -8,3 +8,45 @@ Functions:
     -   Passes the msgs to the gateway using SoftwareSerial (D5 & D6)
     -   Auto-discovers the senders (units)
 
+
+
+Jina la utambulisho wa mfumo katika kituo husika: (SSID = 'WashyInit)
+WiFi.softAP(SSID, "Slave_1_Password", CHANNEL, 0);
+
+Logic:
+Kwa kuanza endapo SSID itakuwa default, bas mfumo utafungua portal kwa ajili ya kuingiza jina la 
+utambulisho, mfano: sm_majengo, sm_jitegemee, n.k
+pia na namba ya channel, mfano: 26703, hii takuwa randomly generated 7 characters ambayo ndio MESH_ID ya mfumo
+baaada ya hizo settings, mfumo uta-restart ili kutumia settings mpya
+
+hiyo kwa upande wa sender(Master):
+kwa kuanza kama channel namba haijakuwa defined, itafungua portal in kuweza kuset channel namba ambayo ndio MESH_ID,
+   - jina la utambulisho
+   - channel namba (mesh_id)
+   - facility - mfano jengo gan
+
+Kwenye utambulisho :
+panaweza kuwekwa ugumu fulani kwa hackers japo itakuwa ni urahisi kwa watumiaji,
+mafano, kutakuwa na form input 3:
+1:a) itakuwa drop_down, kuchagua aina ya taasisi,
+    mfano: 
+    shule ya awali - sa
+    shule ya msingi - sm
+    shule ya sekondari - ss
+    chuo - ce
+    kituo cha afya - mc
+    offisi - of
+1:b) itakuwa text_field, ataingiza jina la taasisi,
+   kama jina lina space, mfumo utazitoa na kulibananisha au uweka "_"
+2) Itakuwa text_field ila itakuwa inapokea namba tuu, atatakiwa kuingiza channel namba (7 digits)
+3) Itakuwa text_field, facility, 
+   ataingiza sehemu ambapo kifaa kimewekwa, mafano - chooni, bwalo la chakula, ukumbini, koridoni
+
+
+Ikumbukwe:
+Kipengele 1-2 vitakuweo pia kwenye Receiver (slave) vikiongezewa na vipengele kadhaa vya ziada,
+mfano wa vipengere vya ziada ni: mkoa, wilaya, kata amapo kifaa kimefungwa
+
+kwa receiver baada ya hatua hizo, 
+SSID itaundwa kwa kuchukua 1:a.value + _ + 1:b.value -> .replace(' ', '_'),
+MESH_ID itakuwa randomly generated

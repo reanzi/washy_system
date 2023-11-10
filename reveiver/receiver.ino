@@ -1,13 +1,5 @@
 /**
-   ESPNOW - Basic communication - Slave
-   Date: 26th September 2017
-   Author: Arvind Ravulavaru <https://github.com/arvindr21>
-   Purpose: ESPNow Communication between a Master ESP32 and a Slave ESP32
-   Description: This sketch consists of the code for the Slave module.
-   Resources: (A bit outdated)
-   a. https://espressif.com/sites/default/files/documentation/esp-now_user_guide_en.pdf
-   b. http://www.esploradores.com/practica-6-conexion-esp-now/
-
+   
    << This Device Slave >>
 
    Flow: Master
@@ -87,6 +79,11 @@ void OnDataRecv(const uint8_t *mac_addr, const uint8_t *data, int data_len) {
   Serial.println("");
 }
 
+
+unsigned long generateMeshId() {
+  unsigned long number = 1000000 + random(9000000); // Ensure a 7-digit number
+  return number;
+}
 void loop() {
   // Chill
 }
