@@ -1,0 +1,4 @@
+This is the Sender  - unit
+
+this is the one which initiate communication, infact it's the master,
+it's main function is to read and send information to the receiver using esp_now

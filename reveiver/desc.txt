@@ -1,0 +1,10 @@
+This is the Receiver.
+
+It'll use esp_now protocol to communicate with the senders (units) to get the data then it will
+send those data to the Gateway via serial
+
+Functions:
+    -   Receives messages via esp_now
+    -   Passes the msgs to the gateway using SoftwareSerial (D5 & D6)
+    -   Auto-discovers the senders (units)
+

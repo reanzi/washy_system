@@ -1,0 +1,35 @@
+This is the Gateway
+It'll host a website and be connected to the  internent for uploading data to the server
+
+
+It will need the following configurations data:
+    -   ssid & password
+    -   channel_id // as a mesh_network identifier
+
+
+
+Funcions:
+    -   Receives msgs from the receiver via serial
+    -   keeps track of all active sender's (unit's) data
+    -   connects to WiFi and publish data with the server,
+    -   Provides a web interface for the system
+
+These configuration data will provided via Setup Portal Initially
+
+It will have an SD card for storing the data
+
+
+It'll host a web server, where where allowed users can visit to view stored data.
+The data will be saved per daily basis, meaning incimented if day is the same.
+the server will include the following routes:
+    /               => as dashboard
+    /config         => as configuration or settings
+    /facilities     => 
+    /facilities/[id]=> Details for a single facility as history
+
+
+/****************
+
+The Gateway will get the data from a receiver node via uart (serial)
+
+*******************/
